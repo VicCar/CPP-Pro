@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*.h5
+embeddings/
+logs/
+*.log
+Biohub_key.txt
+*_key.txt
+HFToken.txt
+.env
+.env.*
+.DS_Store
+.vscode/
+.idea/
+CLAUDE.md
+.claude/
+AGENTS.md

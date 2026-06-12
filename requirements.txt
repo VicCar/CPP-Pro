@@ -1,0 +1,12 @@
+# CPPro runtime dependencies (pip install -r requirements.txt)
+# A CUDA GPU is recommended; CPU works but is slow.
+torch>=2.2
+esm>=3.3              # EvolutionaryScale ESM-C (provides esmc_600m local + the 6B Forge client)
+huggingface_hub
+numpy
+pandas
+scikit-learn
+h5py
+matplotlib
+scipy
+tqdm

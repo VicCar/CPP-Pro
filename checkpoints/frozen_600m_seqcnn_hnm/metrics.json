@@ -1,0 +1,20 @@
+{
+  "backbone": "frozen ESM-C 600M",
+  "head": "seqcnn",
+  "in_dim": 1152,
+  "mined_cap": 885,
+  "n_train": 5781,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "val_mcc_mean": 0.8426073074076689,
+  "test_mcc_ensemble": 0.8140400987541044,
+  "test_f1_ensemble": 0.9071803852889667,
+  "test_auc_ensemble": 0.9741951369652201,
+  "fp_rate_ensemble@0.5": 0.0225,
+  "tpr_test_ensemble@0.5": 0.9087719298245615
+}

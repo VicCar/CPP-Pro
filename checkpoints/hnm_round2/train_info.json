@@ -1,0 +1,18 @@
+{
+  "recipe": "v6 train + first <mined_cap> mined hard negs from hnm_state.json",
+  "mined_cap": 600,
+  "round_label": 2,
+  "n_train": 5496,
+  "n_pos": 2440,
+  "n_neg": 3056,
+  "arch": "DeepSetHead(in_dim=2560, hidden=256, dropout=0.3)",
+  "backbone": "frozen ESM-C 6B (per-token, L_MAX=66)",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "screening_set_size": 10000
+}
