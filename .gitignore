@@ -12,3 +12,6 @@ HFToken.txt
 .DS_Store
 .vscode/
 .idea/
+CLAUDE.md
+.claude/
+AGENTS.md

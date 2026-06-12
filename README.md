@@ -3,6 +3,22 @@
 CPPro scores a peptide for cell-penetration (CPP vs non-CPP). Given a sequence it returns
 `P(CPP)` plus a per-seed disagreement flag, for screening AI-generated peptide candidates.
 
+> **Note on hard-negative mining (read first).** Hard-negative mining (HNM) treats a large
+> pool of UniProt sequences as non-CPP and folds the most CPP-like ones into training as
+> negatives. On inspecting that mined set, some sequences are very likely real cell-penetrating
+> peptides (for example arginine-rich peptides), even after keyword-filtering the pool, simply
+> because they are absent from current CPP databases. So the HNM negative set is partly
+> contaminated with probable positives, and the reported false-positive-rate reduction is
+> somewhat optimistic.
+>
+> We still deploy the HNM models because our priority is a low false-positive rate: a false
+> positive carried into the wet lab is expensive. HNM also improves held-out test MCC (600M
+> 0.75 to 0.81, 6B 0.85 to 0.88) while keeping recall around 91 to 93 percent, so the cost
+> appears small in practice. If you instead want maximum recall, especially on very cationic or
+> arginine-rich candidates, use the **base (non-HNM)** models: 600M via
+> `score_designs_600m.py --head seqcnn` (`checkpoints/frozen_600m_seqcnn/`), or 6B via
+> `score_designs_with_6b_hnm.py --round 0` (`checkpoints/hnm_round0/`).
+
 It comes in two flavours, both = a **frozen ESM-C protein language model** + a small
 trained **classifier head** (no backbone fine-tuning):
 
