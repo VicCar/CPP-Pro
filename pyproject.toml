@@ -1,0 +1,30 @@
+[project]
+name = "cppro"
+version = "0.6.0"
+description = "CPPro — open-weight cell-penetrating-peptide (CPP) classifier on frozen ESM-C 600M"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Victor Carreira" }]
+keywords = ["protein", "peptide", "cell-penetrating-peptide", "esm-c", "bioinformatics"]
+dependencies = [
+    "torch>=2.2",
+    "numpy",
+    "pandas",
+    "huggingface_hub",
+    "esm>=3.1",          # EvolutionaryScale ESM-C 600M (open weights)
+]
+
+[project.urls]
+Homepage = "https://github.com/VicCar/CPP-Pro"
+Model = "https://huggingface.co/mischievers/CPPro-600M"
+
+[project.scripts]
+cppro-score = "cppro.score:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["cppro"]
