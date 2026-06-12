@@ -28,9 +28,9 @@ cppro-score --seq RRRRRRRRR                      # -> P(CPP) + a per-seed stabil
 cppro-score --csv designs.csv --out scored.csv   # adds a cppro_prob_600m column
 ```
 
-Model card + weights: **https://huggingface.co/mischievers/CPPro-600M** (base SeqCNN ensemble,
-v6 test MCC 0.78; 5-fold cluster-disjoint CV 0.86). The HNM-hardened 600M variant (0.81) and
-the hosted 6B model (0.88) are run from the `scripts/` below.
+Model card + weights: **https://huggingface.co/mischievers/CPPro-600M** — the **HNM-hardened
+SeqCNN ensemble** (v6 test MCC 0.81, false-positive rate ~9%, recall ~91%). The hosted 6B model
+(0.88) is run from the `scripts/` below.
 
 ---
 
