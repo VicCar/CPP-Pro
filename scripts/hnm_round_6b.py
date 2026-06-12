@@ -417,12 +417,13 @@ def main():
     if len(new_mined) == 0:
         print("[mine] nothing left to mine (floor unmet or ceiling reached) — HNM has converged.")
 
-    # save mined sequences for this round
+    # save mined sequences for this round (backbone-tagged so 6B/600M never collide)
     if len(new_mined):
         _, _, mined_seqs = load_unused(new_mined)
+        suffix = '' if BACKBONE == '6b' else f'_{BACKBONE}'
         pd.DataFrame({'unused_idx': new_mined, 'sequence': mined_seqs,
                       'pool_prob': pool_p[selected]}).to_csv(
-            RESULTS / f'hnm_round{rnd}_hard_negatives.csv', index=False)
+            RESULTS / f'hnm_round{rnd}_hard_negatives{suffix}.csv', index=False)
 
     # ---- advance state ----
     state['history'].append(rec)
