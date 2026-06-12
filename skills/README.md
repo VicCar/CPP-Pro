@@ -1,6 +1,6 @@
 # Skills
 
-Two Claude Code skills for the CPP-Pro / BoltzGen peptide-design pipeline.
+Two skills for the CPP-Pro / BoltzGen peptide-design pipeline.
 
 > **Tailored to the author's working layout.** These skills assume a single root containing
 > `CPPro/CPPro_current/`, `BoltzGen_pipeline/`, and `tools/`. The repo-internal paths they
