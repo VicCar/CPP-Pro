@@ -33,6 +33,23 @@ locally with no key, at lower accuracy. Both beat the previous SOTA (pLM4CPPs, 0
 
 ---
 
+## Quick start (pip, zero setup)
+
+The portable **CPPro-600M** is on the Hugging Face Hub, so you can score peptides with no
+clone and no API key — it pulls the head weights + the ESM-C 600M backbone automatically:
+
+```bash
+pip install "git+https://github.com/VicCar/CPP-Pro"
+cppro-score --seq RRRRRRRRR                      # -> P(CPP) + a per-seed stability flag
+cppro-score --csv designs.csv --out scored.csv   # adds a cppro_prob_600m column
+```
+
+Model card + weights: **https://huggingface.co/mischievers/CPPro-600M** — the **HNM-hardened
+SeqCNN ensemble** (v6 test MCC 0.81, false-positive rate ~9%, recall ~91%). The hosted 6B model
+(0.88) is run from the `scripts/` below.
+
+---
+
 ## Key results
 
 On the v6 held-out test (n=570, threshold 0.5, exact-disjoint from pLM4CPPs + GraphCPP).
